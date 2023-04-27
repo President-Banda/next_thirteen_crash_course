@@ -8,6 +8,8 @@ export async function fetchRepos(){
   return repos;
 }
 
+await new Promise((resolve) => setTimeout(resolve, 1000))
+
 const ReposPage = async () => {
   const repos = await fetchRepos();
   console.log(repos);
