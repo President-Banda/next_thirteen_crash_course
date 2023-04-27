@@ -11,7 +11,41 @@ const ReposPage = async () => {
   const repos = await fetchRepos();
   // console.log(repos);
   return (
-    <div>{ repos[0].name }</div>
+    <div className="repos-container">
+      <h2>Repositories</h2>
+      <ul className="repos-list">
+        { repos.map((repo) => {
+          <li key={ repo.id }>
+            <Link href={repo.html_url}>
+              <h3>
+                { repo.name }
+              </h3>
+              <p>
+                { repo.description }
+              </p>
+              <div className="repo-details">
+                <span>
+                  <FaStar />
+                  { repo.stargazers_count }
+                </span>
+                <span>
+                  <FaCodeBranch />
+                  { repo.forks_count }
+                </span>
+                <span>
+                  <FaEye />
+                  { repos.watchers_count }
+                </span>
+              </div>
+            </Link>
+          </li>
+        })}
+        <li>
+
+        </li>
+      </ul>
+
+    </div>
   )
 }
 
