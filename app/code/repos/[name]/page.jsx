@@ -1,8 +1,13 @@
 import React from 'react'
 
-const RepoPage = () => {
+const RepoPage = ({ params }) => {
+    console.log(params)
   return (
-    <div>RepoPage</div>
+    <div className='card'>
+        <h2>
+            { params.name }
+        </h2>
+    </div>
   )
 }
 
