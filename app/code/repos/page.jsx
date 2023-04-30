@@ -1,8 +1,7 @@
 import Link from "next/link";
-import {FaStar, FaCodeBranch, FaEye} from "react-icons/fa"
-import { global } from "styled-jsx/css";
+import {FaStar, FaCodeBranch, FaEye} from "react-icons/fa";
 
-export async function fetchRepos(){
+async function fetchRepos(){
   const response = await fetch('https://api.github.com/users/president-banda/repos');
 
   await new Promise((resolve) => setTimeout(resolve, 1000))
@@ -14,11 +13,13 @@ export async function fetchRepos(){
 
 const ReposPage = async () => {
   const repos = await fetchRepos();
-  console.log(repos);
-  return  <div className="repos-container">
+  //console.log(repos);
+
+  return (  
+    <div className="repos-container">
       <h2>Repositories</h2>
-      <ul className="repos-list">
-        { repos.map((repo) => {
+      <ul className="repo-list">
+        { repos.map((repo) => (
           <li key={ repo.id }>
             <Link href='/'>
               <h3>
@@ -43,10 +44,11 @@ const ReposPage = async () => {
               </div>
             </Link>
           </li>
-        })}
+        ))}
       </ul>
 
     </div>
+  );
 }
 
 // export async function getStaticProps() {
