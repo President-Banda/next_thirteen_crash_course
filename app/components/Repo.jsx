@@ -1,4 +1,5 @@
-import React from 'react'
+import Link from "next/link";
+
 async function fetchRepo(name) {
   const response =  await fetch(`https://api.github.com/repos/president-banda/${name}`);
 
