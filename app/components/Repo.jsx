@@ -11,10 +11,27 @@ async function fetchRepo(name) {
 
 const Repo = async ({ name }) => {
     const repo = await fetchRepo(name);
-    console.log(repo);
-  return (
-    <div>Repo</div>
-  )
+    //console.log(repo);
+  return <>
+    <h2> { repo.name } </h2>
+    <p> { repo.description } </p>
+    <div className="card-stats">
+      <div className="card stat">
+        <FaStar />
+        <span>{ repo.stargazers_count }</span>
+      </div>
+
+      <div className="card stat">
+        <FaCodeBranch />
+        <span>{ repo.forks_count }</span>
+      </div>
+
+      <div className="card stat">
+        <FaEye />
+        <span>{ repo.watchess_count }</span>
+      </div>
+    </div>
+  </>
 }
 
 export default Repo
