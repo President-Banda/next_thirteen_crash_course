@@ -1,6 +1,7 @@
 import Repo from "@/app/components/Repo"
 import Link from "next/link"
 import RepoDirs from "@/app/components/RepoDirs"
+import { Suspense } from "react"
 
 const RepoPage = ({ params :{ name } }) => {
     // console.log(params)
@@ -9,8 +10,13 @@ const RepoPage = ({ params :{ name } }) => {
         <Link href='/code/repos' className='btn btn-back'>
           Back to Repositories
         </Link>
-        <Repo name={name} />
-        <RepoDirs name={name} />
+        <Suspense fallback={<div>Loading Repo...</div>}>
+          <Repo name={name} />
+        </Suspense>
+
+        <Suspense fallback={<div>Loading Directories...</div>}>
+          <RepoDirs name={name} />
+        </Suspense>
     </div>
   )
 }
