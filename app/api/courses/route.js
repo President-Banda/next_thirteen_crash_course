@@ -17,7 +17,10 @@ export async function POST(request){
         link,
 
     };
+
+    courses.push(newCourse);
     console.log( title, description, level, link )
     //courses.push(course);
-    return NextResponse.json({ 'message': "course created" });
+    //return NextResponse.json({ 'message': "course created" });
+    return NextResponse.json(courses);
 }
