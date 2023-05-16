@@ -28,7 +28,7 @@ const HomePage = () => {
   return (
     <div>
       <h1>Welcome To Presidents Crash Course</h1>
-      <CourseSearch />
+      <CourseSearch getSearchResults={ (result) => setCourses(result)} />
       <Courses courses={ courses } />
     </div>
   )
