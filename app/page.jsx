@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import LoadingPage from "./loading";
 import Link from "next/link"
 import Courses from "./components/Courses"
+import CourseSearch from "./components/CourseSearch";
 
 const HomePage = () => {
 
@@ -27,8 +28,8 @@ const HomePage = () => {
   return (
     <div>
       <h1>Welcome To Presidents Crash Course</h1>
-
-      <Courses />
+      <CourseSearch />
+      <Courses courses={ courses } />
     </div>
   )
 }
